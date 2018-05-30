@@ -1,4 +1,71 @@
 <?php 
+
+add_action('init', 'assaults_post_type');
+function assaults_post_type() {
+	register_post_type('assaults',
+		array(
+			'labels' => array(
+				'name'          => __('Assaults'),
+				'singular_name' => __('Assault'),
+				'add_new'       => __( 'Add Assault'),
+				'new_item'      => __( 'New Assault'),
+  			'edit_item'     => __( 'Edit Assault'),
+				'add_new_item'  => __( 'Add New Assault' ),
+				'view_item'     => __( 'View Assault'),
+  		  'all_items'     => __( 'View Assaults'),
+  		  'search_items'  => __( 'Search Assaults'),
+			),
+			'public' => true,
+			'has_archive' => true,
+			'show_in_rest'=> true,
+			'query_var' => true,
+			'rest_base' => 'assaults-api',
+  		'rest_controller_class' => 'WP_REST_Posts_Controller',
+			'supports'  => array( 'title', 'thumbnail' )
+		)
+	);
+}
+
+add_action( 'init', 'services_taxonomy', 30 );
+  function services_taxonomy() {
+
+  	$labels = array(
+  		'name'              => _x( 'Assault Categories', 'taxonomy general name' ),
+  		'singular_name'     => _x( 'Assault Category', 'taxonomy singular name' ),
+  		'search_items'      => __( 'Search Assault Categories' ),
+  		'all_items'         => __( 'All Assault Categories' ),
+  		// 'parent_item'       => __( 'Parent Service Category' ),
+  		// 'parent_item_colon' => __( 'Parent Service Category:' ),
+  		'parent_item'       => null,
+  		'parent_item_colon' => null,
+  		'edit_item'         => __( 'Edit Assault Category' ),
+  		'update_item'       => __( 'Update Assault Category' ),
+  		'add_new_item'      => __( 'Add New Assault Category' ),
+  		'new_item_name'     => __( 'New Assault Category or Range' ),
+  		'menu_name'         => __( 'Assault Category' ),
+  	);
+
+  	$args = array(
+  		// 'hierarchical'      => true,
+  		'hierarchical'      => true,
+  		'labels'            => $labels,
+  		'show_ui'           => true,
+  		'show_admin_column' => true,
+  		'query_var'         => true,
+  		'show_in_rest'      => true,
+      'update_count_callback' => '_update_post_term_count',
+      'rewrite' => array( 'slug'        => 'assault-categories',
+                          'with_front'  => true ),
+      // 'rest_base' => 'service',
+  		// 'rest_controller_class' => 'WP_REST_Terms_Controller',
+  	);
+
+  	register_taxonomy( 'assault category', array( 'assaults' ), $args );
+
+  }
+
+
+
 // custom post types - example
 
 // add_action('init', 'team_post_type');

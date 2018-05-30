@@ -25,9 +25,13 @@
   },
   "private": true,
   "dependencies": {
+    "@types/googlemaps": "^3.30.8",
+    "@types/waypoints": "^4.0.1",
     "angular": "1.6.4",
     "angular-sanitize": "1.6.4",
-    "hamburgers": "^0.9.3"
+    "hamburgers": "^0.9.3",
+    "scrollmagic": "^2.0.5",
+    "waypoints": "^4.0.1"
   },
   "scripts": {
     "start": "webpack --watch"

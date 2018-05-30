@@ -83,8 +83,9 @@ Modified to fit Trim Agency SCSS style guide.
 --------------------------------------------------------------*/
 // @import 'layouts/common'; /* keep this first */
 /* -------- pages -------- */
-// @import 'layouts/about';
+@import 'layouts/home';
 @import 'layouts/blog';
+@import 'layouts/map';
 // @import 'layouts/contact';
 
 /*--------------------------------------------------------------

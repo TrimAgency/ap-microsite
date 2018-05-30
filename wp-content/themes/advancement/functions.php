@@ -9,6 +9,7 @@ require('include/post-type-taxonomy.php');
 require('include/pathname-aliases.php');
 require('include/helper-functions.php');
 require('include/blog-index.php');
+require('include/map-data.php');
 
 if ( ! function_exists( 'some_like_it_neat_setup' ) ) :
 	/**
@@ -173,6 +174,43 @@ if ( ! function_exists( 'some_like_it_neat_scripts' ) ) :
 		// Vendor Scripts
 		wp_register_script( 'modernizr-js', get_template_directory_uri() . '/assets/js/vendor/modernizr/modernizr.js', array( 'jquery' ), '2.8.2', false );
 		wp_enqueue_script( 'modernizr-js' );
+		
+		// Waypoints
+		wp_register_script( 'waypoints-js', get_template_directory_uri() . '/assets/js/vendor/waypoints/waypoint.js');
+		wp_enqueue_script( 'waypoints-js' );
+		wp_register_script( 'jquery-waypoints-js', get_template_directory_uri() . '/assets/js/vendor/waypoints/jquery.waypoints.min.js');
+		wp_enqueue_script( 'jquery-waypoints-js' );
+
+		// Greensock Animation Librarary
+		wp_register_script( 'gsap-js', get_template_directory_uri() . '/assets/js/vendor/gsap/TweenMax.min.js');
+		wp_enqueue_script( 'gsap-js' );
+
+		
+		// ScrollMagic Library
+		
+		wp_register_script( 'scrollmagic-js', get_template_directory_uri() . '/assets/js/vendor/scrollmagic/ScrollMagic.min.js');
+		wp_enqueue_script( 'scrollmagic-js' );
+		
+		wp_register_script( 'jquery-scrollmagic-js', get_template_directory_uri() . '/assets/js/vendor/scrollmagic/plugins/jquery.ScrollMagic.min.js');
+		wp_enqueue_script( 'jquery-scrollmagic-js' );
+		// // ScrollMagic pluigns
+		wp_register_script( 'gsap-scrollmagic-js', get_template_directory_uri() . '/assets/js/vendor/scrollmagic/plugins/animation.gsap.min.js');
+		wp_enqueue_script( 'gsap-scrollmagic-js' );
+		// ScrollMagic DEBUG pluign
+		// TODO: remove for production 
+		// wp_register_script( 'debug-scrollmagic-js', get_template_directory_uri() . '/assets/js/vendor/scrollmagic/plugins/debug.addIndicators.min.js');
+		// wp_enqueue_script( 'debug-scrollmagic-js' );
+
+
+		// define lobal var to store assault data
+		global $assault_map_data_array; // value is assigned in 'map-data.php'
+		// register placeholder script to point data to - 'assault-map-data.js'
+		wp_register_script('assault-map-data', get_template_directory_uri() . '/assets/js/app/assault-data/assault-map-data.js' );
+		// set obj AssaultMapData = { assaults: $assault_map_data_array };
+		wp_localize_script('assault-map-data', 'AssaultMapData', array('assaults' => $assault_map_data_array ) );
+		wp_enqueue_script('assault-map-data');
+
+
 
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );

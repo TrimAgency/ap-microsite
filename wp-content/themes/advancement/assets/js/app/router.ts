@@ -1,8 +1,10 @@
+import { home } from './routes/home';
 import { blogIndex } from './routes/blog-index';
 
 // routes object to assign pathname to function for that route
 const routes = {
     // For example  "/": () => home()
+    "/": () => home(),
     "/blog/": () => blogIndex(),
 };
 
