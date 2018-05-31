@@ -4700,6 +4700,8 @@ section:nth-child(odd) {
   opacity: 0; }
 
 .home-content {
+  background-image: none;
+  background-color: transparent;
   background-attachment: fixed;
   background-position: center center;
   background-repeat: no-repeat;
@@ -4708,7 +4710,7 @@ section:nth-child(odd) {
   transition: background-image 0.5s ease-in-out, background-color 0.5s ease-in-out; }
 
 .background-2 {
-  background-image: url(/wp-content/themes/advancement/assets/images/background-2.jpg) !important; }
+  background-image: url("/wp-content/themes/advancement/assets/images/background-2.jpg") !important; }
 
 .background-3 {
   background-image: none !important;
@@ -4808,7 +4810,7 @@ section:nth-child(odd) {
 /* Always set the map height explicitly to define the size of the div
  * element that contains the map. */
 #map {
-  position: fixed;
+  position: fixed !important;
   overflow: hidden;
   top: 0;
   left: 0;

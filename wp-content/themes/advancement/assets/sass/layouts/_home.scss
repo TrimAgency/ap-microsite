@@ -25,6 +25,8 @@ section:nth-child(odd) {
 
 .home-content {
   // background-image: url(/wp-content/themes/advancement/assets/images/background-1.jpg);
+  background-image: none;
+  background-color: transparent;
   background-attachment: fixed;
   background-position: center center;
   background-repeat: no-repeat;
@@ -39,8 +41,9 @@ section:nth-child(odd) {
 //background images
 
 .background-2 {
-  background-image: url(/wp-content/themes/advancement/assets/images/background-2.jpg) !important;
+  background-image: url('/wp-content/themes/advancement/assets/images/background-2.jpg') !important;            
 }
+
 .background-3 {
   background-image: none !important;
   background-color: transparent !important;

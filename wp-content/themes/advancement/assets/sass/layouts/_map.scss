@@ -1,7 +1,7 @@
 /* Always set the map height explicitly to define the size of the div
  * element that contains the map. */
 #map {
-  position: fixed;
+  position: fixed !important;
   overflow: hidden;
   top: 0;
   left: 0;

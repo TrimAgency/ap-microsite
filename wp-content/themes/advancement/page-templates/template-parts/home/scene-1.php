@@ -33,7 +33,7 @@
 
 
 <!-- TODO: move to partial files -->
-<section class="scene scene-3 hidden-scene">
+<section id="scene-3" class="scene scene-3 hidden-scene">
 
 <?php // Assualt Article URLs
   $assaultsAt = array(
@@ -97,12 +97,13 @@
 } ?>
   <h1>#AssaultAt Map</h1>
 
-  <?php 	$assaults	= get_posts(array('post_type'				=> 'assaults',
-															'post_status'			=> 'publish',
+  <?php $assaults	= get_posts(
+                        array('post_type'				=> 'assaults',
+                              'post_status'			=> 'publish',
                               'posts_per_page'  => '-1'));
-                              var_dump($assaults);
-                              
-  get_template_part( 'page-templates/template-parts/home/google', 'map' ); ?>
+                              // var_dump($assaults);
+                                
+  ?>
 
   <?php display_assault_highlights($assaultsAt); ?>
 

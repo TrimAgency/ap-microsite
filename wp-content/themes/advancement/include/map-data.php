@@ -1,13 +1,5 @@
 <?php 
 
-// global $assault_map_data_array;
-// // register placeholder script to hold data
-// wp_register_script('assault-map-data', get_template_directory_uri() . '/assets/js/app/assault-data/assault-map-data.js' );
-// // set obj AssaultMapData = { assaults: $assault_map_data_array };
-// wp_localize_script('assault-map-data', 'AssaultMapData', array('assaults' => $assault_map_data_array ) );
-// wp_enqueue_script('assault-map-data');
-
-
 function assault_map_data() {
 
 	$results = array();
@@ -17,8 +9,8 @@ function assault_map_data() {
 															'post_status'			=> 'publish',
 															'posts_per_page'  => '-1'));
 
-  if ( ! empty( $assaults ) ):
-    foreach( $assaults as $assault ) : setup_postdata( $assault );
+  if (!empty($assaults)):
+    foreach( $assaults as $assault ) : setup_postdata($assault);
     
     // declare 'location' nested array
     $result = array('location' => array() );
@@ -28,17 +20,17 @@ function assault_map_data() {
     
     // foreach( $boundary_array as $coord_string ) {
       
-      // // 	if (strpos($coord_string, ',') !== FALSE) {
-        // // 		$boundary_coords = explode(',', $coord_string); // ['x','y','z']
-        // // 		$coord_pair = array('lat' => (float) $boundary_coords[1],
-        // // 												'lng' => (float) $boundary_coords[0]);
-        // // 		$result['boundary'][] = $coord_pair;
-        // // 	}
+    //   	if (strpos($coord_string, ',') !== FALSE) {
+    //     		$boundary_coords = explode(',', $coord_string); // ['x','y','z']
+    //     		$coord_pair = array('lat' => (float) $boundary_coords[1],
+    //     												'lng' => (float) $boundary_coords[0]);
+    //     		$result['boundary'][] = $coord_pair;
+    //     	}
         
-        // // }
+    //     }
         
         $result['id']               = $assault->ID;
-   
+
         $result['hashtag']          = get_field('hashtag', $assault->ID);
         $result['month']            = get_field('month', $assault->ID);
         $result['year']             = get_field('year', $assault->ID);
@@ -48,7 +40,6 @@ function assault_map_data() {
         $result['summary']          = get_field('summary', $assault->ID);
         $result['location']['lat']  = (float) get_field('lat', $assault->ID);
         $result['location']['lng']  = (float) get_field('lng', $assault->ID);
-
         // $result['image'] = wp_get_attachment_url( get_post_thumbnail_id($assault->ID));
         
         // push assault data to results[]
