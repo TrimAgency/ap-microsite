@@ -4709,6 +4709,12 @@ section:nth-child(odd) {
 .scene.hidden-scene {
   opacity: 0; }
 
+.center-card, .thesis-statment, .timeline-event {
+  margin: 0 auto;
+  text-align: center;
+  max-width: 35rem;
+  min-width: 23rem; }
+
 .home-content {
   background-image: none;
   background-color: transparent;
@@ -4755,14 +4761,11 @@ section:nth-child(odd) {
   padding: 0;
   text-align: center; }
 
+.full-height-margin-top {
+  margin-top: 100vh !important; }
+
 .js-fade-in {
   opacity: 1 !important; }
-
-.timeline-event {
-  margin: 0 auto;
-  text-align: center;
-  max-width: 35rem;
-  min-width: 23rem; }
 
 .timeline-date {
   display: block; }
@@ -4784,7 +4787,8 @@ section:nth-child(odd) {
   align-items: center;
   margin: 0 auto;
   max-width: 50rem;
-  height: 80vh; }
+  max-height: 60vh;
+  min-height: 50rem; }
 
 .follow-up-holder a {
   border: 3px solid #274C68;

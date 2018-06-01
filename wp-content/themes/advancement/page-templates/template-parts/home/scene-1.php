@@ -2,10 +2,24 @@
   <div id="animation__title" class="temp-card">
 
     <h1 class="title">We Came to Learn</h1>
-    <p>
-      2 - 3 Thesis statements
-      Background: Static Image - Title page from report
-    </p>
+
+      <p>
+        2 - 3 Thesis statements
+        Background: Static Image - Title page from report
+      </p>
+
+      <div class="thesis-statment full-height-margin-top bg-white-5">
+        <p class="white"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+        
+      <div class="thesis-statment full-height-margin-top bg-white-5">
+        <p class="white"> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+      </div>
+          
+      <div class="thesis-statment full-height-margin-top bg-white-5">
+        <p class="white"> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+
   </div>
 </section>
 
@@ -35,7 +49,7 @@
       <!-- add data to elements -->
       <div id="policing-timeline">
 
-        <div class="timeline-event full-height-margin-top white">
+        <div class="timeline-event white">
           <h2 class="event-date bold">
             <?php echo $event_date; ?>
           </h2>
@@ -99,7 +113,7 @@
 
 <?php function display_assault_highlights($assaults) {
   foreach ($assaults as $assault): ?>
-    <div class="temp-card assault-highlights bg-white-5">
+    <div class="temp-card assault-highlights full-height-margin-top bg-white-5">
       
       <div>
         <h3>2010 - 2013</h3>
@@ -152,7 +166,6 @@
       <a href="#" target="_blank">Learn more from Report Here</a>
       <a href="<?php echo $action_kit_pdf; ?>">Download Action Kit</a>
     </div>
-    
-
+  
   </div>
 </section>

@@ -27,6 +27,12 @@ section:nth-child(odd) {
 .scene.hidden-scene {
   opacity: 0;
 }
+.center-card {
+  margin: 0 auto;
+  text-align: center;
+  max-width: 35rem;
+  min-width: 23rem;
+}
 
 .home-content {
   // background-image: url(/wp-content/themes/advancement/assets/images/background-1.jpg);
@@ -45,6 +51,9 @@ section:nth-child(odd) {
               background-color 0.5s ease-in-out;
 }
 
+.thesis-statment {
+  @extend .center-card;
+}
 
 
 //background images
@@ -89,7 +98,7 @@ section:nth-child(odd) {
 
 
 .full-height-margin-top  {
-  // margin-top: 100vh !important;
+  margin-top: 100vh !important;
 }
 
 
@@ -102,11 +111,7 @@ section:nth-child(odd) {
 
 // -------- Policing Timeline Styles -------- //
 .timeline-event {
-  margin: 0 auto;
-  text-align: center;
-  max-width: 35rem;
-  min-width: 23rem;
-  // position: absolute;
+@extend .center-card; 
 }
 .timeline-date {
   display: block;
@@ -125,9 +130,6 @@ section:nth-child(odd) {
 }
 
 
-
-
-
 // -------- Follow Up Styles -------- //
 .follow-up-holder {
   display: flex;
@@ -135,7 +137,8 @@ section:nth-child(odd) {
   align-items: center;
   margin: 0 auto;
   max-width: 50rem;
-  height: 80vh;
+  max-height: 60vh;
+  min-height: 50rem;
 }
 .follow-up-holder a {
   border: 3px solid $dark-blue;
