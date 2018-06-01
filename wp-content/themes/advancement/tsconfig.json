@@ -9,7 +9,13 @@
         "strictNullChecks": false,
         "experimentalDecorators": true,
         "skipLibCheck": true,
-        // "target": "es6",
+        "baseUrl": ".",
+        "paths": {
+            "*": [
+                "node_modules/*",
+                "assets/js/vendor/@types/"
+            ]
+        },
         "lib":[
             "dom",
             "es2015",

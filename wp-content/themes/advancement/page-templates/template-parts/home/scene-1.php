@@ -12,23 +12,42 @@
 
 <!-- TODO: move to partial files -->
 <section id="scene-2" class="scene scene-2 hidden-scene">
-  <div id="animation__policing-timeline" class="temp-card">
+  <h1 class="center white" >Policing Timeline</h1>
+  <?php 
+  $timeline_events	= get_posts(
+                          array('post_type'				=> 'policing_timeline',
+                                'post_status'			=> 'publish',
+                                'posts_per_page'  => '-1',
+                                'orderby'         => 'date',
+                                'order'           => 'ASC'));
 
-    
-    <h1>Policing Timeline</h1>
-    <ul>
-      <li>Date 1</li>
-      <li>Date 2</li>
-      <li>Date 3</li>
-      <li>Date 4</li>
-      <li>Date 5</li>
-      <li>Date 6</li>
-      <li>Date 7</li>
-      <li>Date 8</li>
-      <li>Date 9</li>
-      <li>Date 10</li>
-    </ul>
-  </div>
+  // $timeline_events = array_reverse($timeline_events);
+
+                                // var_dump($timeline_events);
+  if (!empty($timeline_events)):
+    foreach($timeline_events as $event):
+      // get individual post data
+      $event_id           = $event->ID;
+      $event_date         = get_the_title($event);
+      // $event_description  = get_the_content($event);
+      $event_description  = $event->post_content; ?>
+
+      <!-- add data to elements -->
+      <div id="policing-timeline">
+
+        <div class="timeline-event full-height-margin-top white">
+          <h2 class="event-date bold">
+            <?php echo $event_date; ?>
+          </h2>
+          <p class="event-desription">
+            <?php echo $event_description; ?>
+          </p>  
+        </div> 
+
+      </div>
+  <?php
+    endforeach;
+  endif; ?>
 </section>
 
 
@@ -111,13 +130,29 @@
 
 
 <!-- TODO: move to partial files -->
-<section class="scene scene-4 hidden-scene">
+<section id="scene-4" class="scene scene-4 hidden-scene">
   <div class="temp-card">
     <h1>Infographics</h1>
 
     <div class="infographic-1"></div>
     <div class="infographic-2"></div>
     <div class="infographic-3"></div>
+
+  </div>
+</section>
+
+
+<section id="scene-5" class="scene scene-5 hidden-scene">
+
+<?php $action_kit_pdf = get_field('action_kit_pdf') ?>
+  <div class="temp-card">
+    <h1>Follow Up</h1>
+
+    <div class="follow-up-holder">
+      <a href="#" target="_blank">Learn more from Report Here</a>
+      <a href="<?php echo $action_kit_pdf; ?>">Download Action Kit</a>
+    </div>
+    
 
   </div>
 </section>

@@ -1,8 +1,13 @@
+
 *:not(a) {
   // color: white;
 }
+a,p,span {
+  font-size: 1.3125rem;
+  line-height: 1.5;
+}
 a { 
-  color: goldenrod;
+  color: $gold;
   font-weight: bold;
   text-decoration: none;
   &:hover {
@@ -31,7 +36,11 @@ section:nth-child(odd) {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: hidden;
   padding: 4rem 3.5rem 5rem;
+  width: 100%;
+  height: 100%;
+
   transition: background-image 0.5s ease-in-out,
               background-color 0.5s ease-in-out;
 }
@@ -65,7 +74,8 @@ section:nth-child(odd) {
 }
 
 .scene-3 .temp-card {
-  background-color: rgba(0,0,0,.3);
+  background-color: rgba(0,0,0,.8);
+  color: white;
   margin-bottom: 5rem;
 }
 
@@ -78,8 +88,66 @@ section:nth-child(odd) {
 }
 
 
+.full-height-margin-top  {
+  // margin-top: 100vh !important;
+}
+
 
 // JS animation classes
 .js-fade-in {
   opacity:1 !important;
+}
+
+
+
+// -------- Policing Timeline Styles -------- //
+.timeline-event {
+  margin: 0 auto;
+  text-align: center;
+  max-width: 35rem;
+  min-width: 23rem;
+  // position: absolute;
+}
+.timeline-date {
+  display: block;
+}
+
+.timeline-event::before {
+  background-color: white;
+  content: '';
+  display: block;
+  position: relative;
+  top: calc(-100% - 2rem);
+  top: 0;
+  left: calc(50% - 2px);
+  width: 4px;
+  height:calc(100vh - 4rem);
+}
+
+
+
+
+
+// -------- Follow Up Styles -------- //
+.follow-up-holder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 50rem;
+  height: 80vh;
+}
+.follow-up-holder a {
+  border: 3px solid $dark-blue;
+  background-color: rgba($gold, .8);
+  color: $dark-blue;
+  display: block;
+  padding: 1.35rem 3rem;
+  text-decoration: none;
+  height: 5rem;
+  transition: all 0.3s ease-out;
+  &:hover {
+    background-color: $dark-blue;
+    color: $gold;
+  }
 }

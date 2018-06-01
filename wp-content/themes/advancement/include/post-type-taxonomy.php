@@ -1,5 +1,6 @@
 <?php 
 
+// Assault Custom Post Type
 add_action('init', 'assaults_post_type');
 function assaults_post_type() {
 	register_post_type('assaults',
@@ -26,6 +27,7 @@ function assaults_post_type() {
 	);
 }
 
+// Register Categories for Assault Post Type
 add_action( 'init', 'services_taxonomy', 30 );
   function services_taxonomy() {
 
@@ -62,7 +64,35 @@ add_action( 'init', 'services_taxonomy', 30 );
 
   	register_taxonomy( 'assault category', array( 'assaults' ), $args );
 
-  }
+	}
+	
+
+// Policing Timeline Event Custom Post Type
+add_action('init', 'policing_timeline_post_type');
+function policing_timeline_post_type() {
+	register_post_type('policing_timeline',
+		array(
+			'labels' => array(
+				'name'          => __('Policing Timeline'),
+				'singular_name' => __('Timeline Event'),
+				'add_new'       => __( 'Add Timeline Event'),
+				'new_item'      => __( 'New Timeline Event'),
+  			'edit_item'     => __( 'Edit Timeline Event'),
+				'add_new_item'  => __( 'Add New Timeline Event' ),
+				'view_item'     => __( 'View Timeline Events'),
+  		  'all_items'     => __( 'View Timeline Events'),
+  		  'search_items'  => __( 'Search Timeline Events'),
+			),
+			'public' => true,
+			'has_archive' => true,
+			'show_in_rest'=> true,
+			'query_var' => true,
+			'rest_base' => 'policing-timeline-api',
+  		'rest_controller_class' => 'WP_REST_Posts_Controller',
+			'supports'  => array( 'title', 'editor', 'thumbnail' )
+		)
+	);
+}
 
 
 

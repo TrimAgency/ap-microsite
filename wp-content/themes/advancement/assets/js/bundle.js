@@ -134,8 +134,9 @@ function home() {
                 && assault.year <= yearEnd); });
         }
         else {
-            yearRange = assaults.filter(function (assault) { return (assault.year === yearStart); });
+            yearRange = assaults.filter(function (assault) { return (assault.year == yearStart); });
         }
+        console.log(yearRange);
         return yearRange;
     }
     // -------- start google maps -------- //
@@ -145,8 +146,8 @@ function home() {
             center: { lat: 37.09024, lng: -95.712891 },
             zoom: 4.9
         });
-        // var markers = assaults.map(function(assault, i) {
-        var markers = assaultsRange(2015).map(function (assault, i) {
+        var markers = assaults.map(function (assault, i) {
+            // var markers = assaultsRange(2015).map(function(assault, i) {
             // console.log(assaultsAt);
             return new google.maps.Marker({
                 position: assault.location,
@@ -189,19 +190,14 @@ function home() {
     });
     scene2.waypoint(function (direction) {
         if (direction === "down") {
-            // scene2.addClass('js-fade-in');
             homeContent.addClass('background-2');
         }
         else {
-            // scene2.removeClass('js-fade-in');
             homeContent.removeClass('background-2');
         }
     }, { offset: '50%' });
     scene3.waypoint(function (direction) {
         var fade = homeContent.addClass;
-        // if(direction !== "down") fade = homeContent.removeClass
-        // fade('background-3');
-        console.log('triggered');
         if (direction === "down") {
             homeContent.addClass('background-3');
         }
@@ -209,22 +205,6 @@ function home() {
             homeContent.removeClass('background-3');
         }
     }, { offset: '20%' });
-    // jQuery( document ).ready(function() {
-    //     // Init Controller
-    //     var scrollMagicController = new ScrollMagic();
-    //     // Duration ignored / replaced by scene duration now
-    //     var tween = TweenMax.to('#animation__policing-timeline', 0.5, {
-    //       backgroundColor: 'rgb(151, 239, 203)',
-    //       scale: 1.5,
-    //       rotation: 360
-    //     });
-    //     var scene = new ScrollScene({
-    //       triggerElement: '#scene-2',
-    //       duration: 300 /* How many pixels to scroll / animate */
-    //     })
-    //     .setTween(tween)
-    //     .addTo(scrollMagicController);
-    // });
 }
 exports.home = home;
 
