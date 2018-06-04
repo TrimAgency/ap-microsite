@@ -23,6 +23,8 @@ get_header(); ?>
   get_template_part( 'page-templates/template-parts/home/scene', '1' ); 
   get_template_part( 'page-templates/template-parts/home/scene', '2' ); 
   get_template_part( 'page-templates/template-parts/home/scene', '3' ); 
+  get_template_part( 'page-templates/template-parts/home/scene', '4' ); 
+  get_template_part( 'page-templates/template-parts/home/scene', '5-cta' ); 
 ?>
 
 

@@ -127,27 +127,17 @@ function home() {
     var assaults = AssaultMapData.assaults; // get map data
     // returns map data from by year/range
     function assaultsRange(yearStart, yearEnd) {
-        if (yearEnd === void 0) { yearEnd = null; }
-        var yearRange;
-        if (typeof (yearEnd) === 'number') {
-            yearRange = assaults.filter(function (assault) { return (assault.year >= yearStart
-                && assault.year <= yearEnd); });
-        }
-        else {
-            yearRange = assaults.filter(function (assault) { return (assault.year == yearStart); });
-        }
-        console.log(yearRange);
+        var yearRange = assaults.filter(function (assault) { return (assault.year >= yearStart
+            && assault.year <= yearEnd); });
         return yearRange;
     }
-    // -------- start google maps -------- //
-    var assaultMap;
-    window.initMap = function () {
-        assaultMap = new google.maps.Map(document.getElementById('map'), {
-            center: { lat: 37.09024, lng: -95.712891 },
-            zoom: 4.9
-        });
-        var markers = assaults.map(function (assault, i) {
-            // var markers = assaultsRange(2015).map(function(assault, i) {
+    function getHighlightDate($el) {
+        var highlightDate = $el.data('highlight-year');
+        console.log("highlightDate: ", highlightDate);
+    }
+    function addMarkers(endYear) {
+        var assaults = assaultsRange(2010, endYear);
+        assaults.map(function (assault, i) {
             // console.log(assaultsAt);
             return new google.maps.Marker({
                 position: assault.location,
@@ -163,18 +153,33 @@ function home() {
                 }
             });
         });
+    }
+    /////////////////////////////////////////
+    // -------- start google maps -------- //
+    /////////////////////////////////////////
+    var assaultMap;
+    window.initMap = function () {
+        assaultMap = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: 37.09024, lng: -95.712891 },
+            zoom: 4.9
+        });
+        // things a bottom of filer were here //
+        addMarkers(2013);
     }; // end initMap()
     window.initMap();
-    console.log("AssaultMapData: ", AssaultMapData);
+    // console.log("AssaultMapData: ", AssaultMapData);
     // -------- end google maps -------- //
     var allScenes = document.getElementsByClassName('scene');
     var homeContent = jQuery('.home-content');
     var titleBlock = jQuery('#animation__title');
     var hiddenScene = jQuery('.scene.hidden-scene');
+    var highlights = jQuery('.assault-highlight');
     var scene1 = jQuery('#scene-1');
     var scene2 = jQuery('#scene-2');
     var scene3 = jQuery('#scene-3');
+    /////////////////////////////////
     // -------- Waypoints -------- //
+    /////////////////////////////////
     // fade scenes in at offset when scrolling down
     hiddenScene.each(function (index) {
         var currentScene = jQuery(this);
@@ -205,8 +210,51 @@ function home() {
             homeContent.removeClass('background-3');
         }
     }, { offset: '20%' });
+    // addMarkers(2013);
+    // getHighlightDate(jQuery('.assault-highlight'));
+    highlights.each(function (index, value) {
+        var currentHighlight = jQuery(this);
+        currentHighlight.waypoint(function (direction) {
+            if (direction === "down") {
+                getHighlightDate(currentHighlight);
+                currentHighlight.addClass('js-show-markers');
+                console.log(currentHighlight);
+            }
+            else {
+                currentHighlight.removeClass('js-show-markers');
+            }
+        }, { offset: '80%' });
+    });
 }
 exports.home = home;
+// -- THINGS AT BOTTOM OF FILE -- //
+// function markersToShow(date) {
+//   let markersShown = []
+//    if (date >= 2010 && date <= 2013) {
+//      markersShown.push( assaultsRange(2010,2013) );
+//   } 
+//   // else {
+//   //  markersShown.push( assaultsRange(date) );
+//   // }
+//   // console.log(markersShown);
+// }
+// // var markers = assaults.map(function(assault, i) {
+// var markers = assaultsRange(2010,2013).map(function(assault, i) {
+//   // console.log(assaultsAt);
+//   return new google.maps.Marker({
+//     position: assault.location,
+//     map: assaultMap,
+//     // icon: '/wp-content/themes/dpz/assets/images/marker.png',
+//     title: assault.hashtag,
+//     postData: { 
+//       postId:       assault.id,
+//       postCity:     assault.city,
+//       postState:    assault.state,
+//       postLink:     assault.article,
+//       postSummary:  assault.summary
+//     }
+//   });
+// }); 
 
 
 /***/ }),

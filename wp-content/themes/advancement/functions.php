@@ -8,7 +8,8 @@
 require('include/post-type-taxonomy.php');
 require('include/pathname-aliases.php');
 require('include/helper-functions.php');
-require('include/blog-index.php');
+// require('include/blog-index.php');
+require('include/assault-highlights.php');
 require('include/map-data.php');
 
 if ( ! function_exists( 'some_like_it_neat_setup' ) ) :

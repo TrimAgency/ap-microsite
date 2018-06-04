@@ -28,8 +28,8 @@ function assaults_post_type() {
 }
 
 // Register Categories for Assault Post Type
-add_action( 'init', 'services_taxonomy', 30 );
-  function services_taxonomy() {
+add_action( 'init', 'assaults_taxonomy', 30 );
+  function assaults_taxonomy() {
 
   	$labels = array(
   		'name'              => _x( 'Assault Categories', 'taxonomy general name' ),
