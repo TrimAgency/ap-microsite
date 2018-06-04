@@ -131,9 +131,10 @@ function home() {
             && assault.year <= yearEnd); });
         return yearRange;
     }
-    function getHighlightDate($el) {
-        var highlightDate = $el.data('highlight-year');
-        console.log("highlightDate: ", highlightDate);
+    function getHighlightYear($el) {
+        var highlightYear = $el.data('highlight-year');
+        console.log("highlightYear: ", highlightYear);
+        return highlightYear;
     }
     function addMarkers(endYear) {
         var assaults = assaultsRange(2010, endYear);
@@ -211,19 +212,20 @@ function home() {
         }
     }, { offset: '20%' });
     // addMarkers(2013);
-    // getHighlightDate(jQuery('.assault-highlight'));
+    // getHighlightYear(jQuery('.assault-highlight'));
     highlights.each(function (index, value) {
         var currentHighlight = jQuery(this);
         currentHighlight.waypoint(function (direction) {
             if (direction === "down") {
-                getHighlightDate(currentHighlight);
+                var highlightYear = getHighlightYear(currentHighlight);
+                addMarkers(highlightYear);
                 currentHighlight.addClass('js-show-markers');
-                console.log(currentHighlight);
             }
             else {
                 currentHighlight.removeClass('js-show-markers');
+                // removeMarkers(highlightYear);
             }
-        }, { offset: '80%' });
+        }, { offset: '50%' });
     });
 }
 exports.home = home;
