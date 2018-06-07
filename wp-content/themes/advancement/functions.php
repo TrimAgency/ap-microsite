@@ -186,22 +186,6 @@ if ( ! function_exists( 'some_like_it_neat_scripts' ) ) :
 		wp_register_script( 'gsap-js', get_template_directory_uri() . '/assets/js/vendor/gsap/TweenMax.min.js');
 		wp_enqueue_script( 'gsap-js' );
 
-		
-		// ScrollMagic Library
-		
-		wp_register_script( 'scrollmagic-js', get_template_directory_uri() . '/assets/js/vendor/scrollmagic/ScrollMagic.min.js');
-		wp_enqueue_script( 'scrollmagic-js' );
-		
-		wp_register_script( 'jquery-scrollmagic-js', get_template_directory_uri() . '/assets/js/vendor/scrollmagic/plugins/jquery.ScrollMagic.min.js');
-		wp_enqueue_script( 'jquery-scrollmagic-js' );
-		// // ScrollMagic pluigns
-		wp_register_script( 'gsap-scrollmagic-js', get_template_directory_uri() . '/assets/js/vendor/scrollmagic/plugins/animation.gsap.min.js');
-		wp_enqueue_script( 'gsap-scrollmagic-js' );
-		// ScrollMagic DEBUG pluign
-		// TODO: remove for production 
-		// wp_register_script( 'debug-scrollmagic-js', get_template_directory_uri() . '/assets/js/vendor/scrollmagic/plugins/debug.addIndicators.min.js');
-		// wp_enqueue_script( 'debug-scrollmagic-js' );
-
 
 		// define lobal var to store assault data
 		global $assault_map_data_array; // value is assigned in 'map-data.php'

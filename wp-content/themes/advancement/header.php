@@ -32,34 +32,6 @@
 </head>
 
 <body <?php body_class(); ?>>
-	<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
-	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
-	<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.velocity.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/jquery.ScrollMagic.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script> -->
-
-	<!-- <script>
-	  jQuery(function() {
-    // Init Controller
-    var scrollMagicController = new ScrollMagic();
-
-    var tween = TweenMax.to('#animation__policing-timeline', 0.5, {
-      backgroundColor: 'rgb(125, 129, 121)',
-      scale: 1,
-      rotation: 360
-    });
-
-    var scene = new ScrollMagic.Scene({
-      triggerElement: '#scene-2',
-      duration: 300 /* How many pixels to scroll / animate */
-    })
-    .setTween(tween)
-    .addTo(scrollMagicController);
-  });</script> -->
 
   <div id="spinner" class="hidden overlay-wrap">
      <div class="spinner-wrap">
