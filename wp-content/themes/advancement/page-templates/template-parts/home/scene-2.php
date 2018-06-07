@@ -6,8 +6,15 @@
                                     'order'           => 'ASC'));
 ?>
 
-<section id="scene-2" class="scene scene-2 hidden-scene">
-  <h1 class="center white">Policing Timeline</h1>
+<section id="scene-2" class="scene-2 scene section-card--static">
+
+  <div id="timeline-container" class="timeline__container fixed-media-container positioned">
+    <div class="fixed-media__content container--fullbleed">
+      <div class="background-image background-2"></div>
+    </div>
+  </div>
+  <div id="policing-timeline" class="content-container content-container--margin" style="padding-top:100px;text-align:center">
+    <h1 class="center white timeline__title">Policing Timeline</h1>
 <?php
   if (!empty($timeline_events)):
     foreach($timeline_events as $event):
@@ -17,19 +24,17 @@
       $event_description  = $event->post_content; ?>
 
       <!-- add data to elements -->
-      <div id="policing-timeline">
+      <div class="timeline__event white scrolly-text scrolly-text--centered article-header__p--1">
+        <h2 class="event__date bold">
+          <?php echo $event_date; ?>
+        </h2>
+        <p class="event-desription ">
+          <?php echo $event_description; ?>
+        </p>  
+      </div> 
 
-        <div class="timeline-event white">
-          <h2 class="event-date bold">
-            <?php echo $event_date; ?>
-          </h2>
-          <p class="event-desription">
-            <?php echo $event_description; ?>
-          </p>  
-        </div> 
-
-      </div>
   <?php
     endforeach;
   endif; ?>
+  </div>
 </section>

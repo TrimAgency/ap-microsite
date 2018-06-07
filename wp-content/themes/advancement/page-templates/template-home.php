@@ -16,18 +16,14 @@
 
 get_header(); ?>
 
-<div class="home-content" style="background-image: url(<?php echo $background_images['scene_1__title']; ?> );">
-
-<?php 
-  get_template_part( 'page-templates/template-parts/home/google', 'map' ); 
-  get_template_part( 'page-templates/template-parts/home/scene', '1' ); 
-  get_template_part( 'page-templates/template-parts/home/scene', '2' ); 
-  get_template_part( 'page-templates/template-parts/home/scene', '3' ); 
-  get_template_part( 'page-templates/template-parts/home/scene', '4' ); 
-  get_template_part( 'page-templates/template-parts/home/scene', '5-cta' ); 
-?>
-
-
+<div class="home-content">
+  <?php 
+    get_template_part( 'page-templates/template-parts/home/scene', '1' ); 
+    get_template_part( 'page-templates/template-parts/home/scene', '2' ); 
+    get_template_part( 'page-templates/template-parts/home/scene', '3' ); 
+    get_template_part( 'page-templates/template-parts/home/scene', '4' ); 
+    get_template_part( 'page-templates/template-parts/home/scene', '5-cta' ); 
+  ?>
 </div><!-- #primary -->
 
 <?php get_footer(); ?>
