@@ -45,8 +45,9 @@ export function home() {
     return yearRange;
   }
 
-  function getHighlightYear($el){
-    let highlightYear = $el.data('highlight-year');  
+  function getHighlightYear($el:JQuery):string{
+    let highlightYear = $el.data('highlight-year'); 
+
     return highlightYear;
   }
 
@@ -181,12 +182,12 @@ export function home() {
     
     currentHighlight.waypoint(function(direction) {
       if (direction === "down") {
-        let highlightYear = getHighlightYear(currentHighlight);
+        let highlightYear = Number(getHighlightYear(currentHighlight));
         
         addMarkers(highlightYear);
         currentHighlight.addClass('js-show-markers');
       } else {
-        let highlightYear = getHighlightYear(currentHighlight);
+        let highlightYear = Number(getHighlightYear(currentHighlight));
         
         currentHighlight.removeClass('js-show-markers');
         if(highlightYear > 2013) {
