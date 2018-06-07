@@ -4,8 +4,8 @@ wp-includes/**
 wp-content/plugins/**
 wp-content/uploads/**
 ## replace with your theme name
-wp-content/themes/trim-starter/assets/sass/**
-wp-content/themes/trim-starter/assets/js/app/**
+wp-content/themes/advancement/assets/sass/**
+wp-content/themes/advancement/assets/js/app/**
 
 ##Files to ignore
 .DS_Store
@@ -29,7 +29,7 @@ wp-trackback.php
 xmlrpc.php
 wp-cron.php
 ## replace with your theme name
-wp-content/themes/trim-starter/package.json
-wp-content/themes/trim-starter/yarn.lock
-wp-content/themes/trim-starter/tsconfig.json
-wp-content/themes/trim-starter/webpack.config.js
+wp-content/themes/advancement/package.json
+wp-content/themes/advancement/yarn.lock
+wp-content/themes/advancement/tsconfig.json
+wp-content/themes/advancement/webpack.config.js

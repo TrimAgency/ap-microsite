@@ -43,7 +43,7 @@
 
 <div class="hfeed site">
 
-		<header id="masthead" class="site-header wrap" role="banner">
+		/* <header id="masthead" class="site-header wrap" role="banner">
 			<!-- begin vertical nav bar -->
 		  <nav class="js-menu">
 				<?php
@@ -56,6 +56,6 @@
 				?>
 		  </nav>
 
-		</header><!-- #masthead -->
+		</header><!-- #masthead --> */
 
 		<main class="site-main wrap" role="main">

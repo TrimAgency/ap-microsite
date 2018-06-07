@@ -1,0 +1,143 @@
+$header-height: 7rem;
+
+header {
+  border-bottom: 3px solid rgba($black, 0.2);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 5.5rem;
+  z-index: 10;
+
+  transition: top 0.3s ease-in-out,
+              background-color 0.3s ease-in-out,
+              background-image 0.9s ease-in-out;
+  
+  @include media('>phone') {
+    height: 7rem;
+  }
+}
+
+.top-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin: 0 auto;
+  padding: 0 1rem;
+  max-width: 75rem;
+  height: 100%;
+  @include media('>phone') {
+    padding: 0 2.625rem;
+  }
+  @include media('>=widescreen') {
+    padding: 0;
+  }
+}
+
+.logo,
+.logo-dark  {
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  margin: 1rem 1rem 1rem 0;
+  width: 15.25rem;
+  height: 3.375rem;
+  transition: transform 0.3s ease-in-out;
+  @include media('<=phone') {
+    transform: scale(0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+// .logo-dark {
+//   display: none;
+// }
+
+nav {
+  display: inline-block;
+}
+
+nav .menu-primary-menu-container ul {
+  @extend %listreset;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  transition: right 0.3s ease-in-out,
+              opacity 0.3s ease-in-out;
+  @include media('<tablet') {
+    background-color: $black;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: absolute;
+    right: -100%;
+    top: 0;
+    opacity: 0;
+    padding-top: 6rem;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    &.is-active {
+      opacity: 1;
+      right: 0%;
+    }
+  }
+
+  li a {
+    color: $white;
+    line-height: 3;
+    margin-left: 0rem;
+    text-decoration: none;
+    text-transform: capitalize;
+    white-space: nowrap;
+    transition: color 0.3s ease-in-out;
+    @include media('>tablet') {
+      line-height: initial;
+      margin-left: 2rem;
+      &:hover {
+        // color: $blue;
+      }
+    }
+  }
+}
+
+.hamburger {
+  display: block;
+  position: absolute;
+  top: 1rem;
+  right: 0.5rem;
+  transform: scale(0.8);
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  @include media('>=tablet') {
+    display: none;
+  }
+}
+
+.nav-up {
+  top: -#{$header-height};
+}
+.nav-down {
+// comment in if navbar needs different styles //
+// when user is scroll to the top of the page  //
+  // background-color: $white;
+  // background-image: none;
+
+  // & a {
+  //   color: $black !important;
+  // }
+  // .logo {
+  //   display: none;
+  // }
+  // .logo-dark {
+  //   display: block;
+  // }
+  
+  // .hamburger-inner {
+  //   &,
+  //   &::before,
+  //   &::after {
+  //     background-color: $black;
+  //   }
+  // }
+}
