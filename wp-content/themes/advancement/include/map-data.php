@@ -1,15 +1,15 @@
 <?php 
 function assault_map_data() {
-	$data_points = array();
-
-	$assaults	= get_posts(array('post_type'				=> 'assaults',
-															'post_status'			=> 'publish',
-															'posts_per_page'  => '-1'));
+	$data_points  = array();
+  $assaults   	= get_posts(array('post_type'				=> 'assaults',
+                                  'post_status'			=> 'publish',
+                                  'posts_per_page'  => '-1'));
 
   if (!empty($assaults)):
     foreach( $assaults as $assault ) : setup_postdata($assault);
+
       // declare 'location' nested array for each data_point
-      $data_point = array('location' => array() );
+      $data_point = array('location'  => array() );
   
       $data_point['id']               = $assault->ID;
 

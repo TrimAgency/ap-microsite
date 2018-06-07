@@ -4,7 +4,6 @@ html, body {
   height: 100%;
   background-color: #20303B;
   color: #fff;
-  // font-family: CNN, Helvetica, sans-serif;
   font-size: 62.5%;
 }
 
@@ -15,9 +14,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     font-size: 100%;
     vertical-align: baseline;
 }
-*:not(a) {
-  // color: white;
-}
+
 a,p,span {
   font-size: 1.3125rem;
   line-height: 1.5;
@@ -33,10 +30,6 @@ a {
 
 h1 {
   font-size: 3rem;
-}
-
-p {
-  // font-size: 2rem;
 }
 
 
@@ -158,14 +151,6 @@ p {
   // overflow: hidden;
 }
 
-.scene {
-  // background-color: rgba(245, 244, 187, .2);
-  // background-color: rgba(63, 60, 60, .2);
-
-  // display: block;
-  // min-height: 100rem;
-}
-
 .section-card--static {
   background-color: transparent;
   position: relative;
@@ -195,18 +180,13 @@ section:nth-child(odd) {
 }
 
 .home-content {
-  // background-image: url(/wp-content/themes/advancement/assets/images/background-1.jpg);
   background-image: none;
   background-color: transparent;
   background-attachment: fixed;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  // overflow: hidden;
-  // padding: 4rem 3.5rem 5rem;
   width: 100%;
-  // height: 100vh;
-
   transition: background-image 0.5s ease-in-out,
               background-color 0.5s ease-in-out;
 }
@@ -229,7 +209,6 @@ section:nth-child(odd) {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  // overflow: hidden;
   width:100%;
   height: 100%;
 }
@@ -260,14 +239,12 @@ section:nth-child(odd) {
 
 
 //background images
-
 .background-1 {
  background-image: url(/wp-content/themes/advancement/assets/images/background-1.jpg) !important;
 }
 .background-2 {
   background-image: url('/wp-content/themes/advancement/assets/images/background-2.jpg') !important;            
 }
-
 .background-3 {
   background-image: none !important;
   background-color: transparent !important;
@@ -394,7 +371,6 @@ p.article-header__p {
     transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
 
 .article-header__title {
-  // font-family: "CNN Clock", CNN, Helvetica, sans-serif;
   font-size: 10vw;
   letter-spacing: 1.75vw;
   padding-left: 1.75vw;
@@ -405,7 +381,6 @@ p.article-header__p {
   position: relative;
   left: 50%;
   display: inline-block;
-  // text-align: center;
   transform: translateX(-50%);
   transition: all 6.5s cubic-bezier(0.4, 0, 0.2, 1); 
   -webkit-font-smoothing: antialiased;
@@ -426,7 +401,6 @@ p.article-header__p {
 //   letter-spacing: 1vw; }
 
 .article-header__subtitle {
-  // font-family: CNN, Helvetica, sans-serif;
   font-size: 4vw;
   letter-spacing: 0.1vw;
   line-height: 5.5vw;
@@ -478,18 +452,6 @@ p.article-header__p {
     padding: 26px 0;
     border-top: 3px solid #1F2F43;
     border-bottom: 3px solid #1F2F43; }
-
-.main-title-holder {
-  position: fixed;
-  // position: relative;
-  font-size: 100%;
-  top: 0;
-  left:0;
-  height:100vh;
-  // transition: opacity 5s cubic-bezier(0.4, 0, 0.2, 1), transform 6s cubic-bezier(0.4, 0, 0.2, 1);
-  // opacity: 0.9;
-  // z-index: 1;
-}
 
 .scrolly-text {
   width: 100%;
@@ -635,9 +597,6 @@ p.article-header__p {
   transform: translate(-50%, -50%) scale(0.9); 
 }
 
-
-
-
 .full-height-margin-top  {
   margin-top: 100vh !important;
 }
@@ -649,13 +608,7 @@ p.article-header__p {
 }
 
 
-// -------- Thesis Statment Styles -------- //
-.thesis-statments-container {
-  // z-index: 1;
-}
 // -------- Policing Timeline Styles -------- //
-
-
 .timeline__container  {
   // padding-top: 60vh;
 }

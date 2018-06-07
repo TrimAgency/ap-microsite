@@ -134,13 +134,11 @@ function home() {
     }
     function getHighlightYear($el) {
         var highlightYear = $el.data('highlight-year');
-        console.log("highlightYear: ", highlightYear);
         return highlightYear;
     }
     function addMarkers(endYear) {
         var assaults = assaultsRange(2010, endYear);
         assaults.map(function (assault, i) {
-            // console.log(assaultsAt);
             var markers = new google.maps.Marker({
                 position: assault.location,
                 map: assaultMap,
@@ -158,39 +156,18 @@ function home() {
             return markers;
         });
     }
-    // function removeMarkers(endYear) { 
-    //   const assaults = assaultsRange(2010, endYear)
-    //   assaults.map((assault, i) => {
-    //     // console.log(assaultsAt);
-    //     return new google.maps.Marker({
-    //       position: assault.location,
-    //       map: assaultMap,
-    //       // icon: '/wp-content/themes/dpz/assets/images/marker.png',
-    //       title: assault.hashtag,
-    //       postData: { 
-    //         postId:       assault.id,
-    //         postCity:     assault.city,
-    //         postState:    assault.state,
-    //         postLink:     assault.article,
-    //         postSummary:  assault.summary
-    //       }
-    //     });
-    //   });
-    // }
-    /////////////////////////////////////////
-    // -------- start google maps -------- //
-    /////////////////////////////////////////
+    //////////////////////////////////
+    // --------google maps -------- //
+    //////////////////////////////////
     var assaultMap;
     window.initMap = function () {
         assaultMap = new google.maps.Map(document.getElementById('map'), {
             center: { lat: 37.09024, lng: -95.712891 },
             zoom: 4.9
         });
-        // things a bottom of filer were here //
         addMarkers(2013);
-    }; // end initMap()
+    };
     window.initMap();
-    // console.log("AssaultMapData: ", AssaultMapData);
     // -------- end google maps -------- //
     var allScenes = document.getElementsByClassName('scene');
     var homeContent = jQuery('.home-content');
@@ -210,7 +187,6 @@ function home() {
     hiddenScene.each(function (index) {
         var currentScene = jQuery(this);
         currentScene.waypoint(function (direction) {
-            // console.log(index, ": ", currentScene);
             if (direction === "down") {
                 currentScene.addClass('js-fade-in');
             }
@@ -221,7 +197,6 @@ function home() {
     });
     // fade main title in on load
     jQuery(document).ready(function () {
-        // mainTitle.removeClass('article-header__content--init').addClass('fade-in');
         mainTitle.removeClass('article-header__content--init');
     });
     // thesis satments trigger fading main title out 
@@ -235,12 +210,10 @@ function home() {
     }, { offset: '90%' });
     scene2.waypoint(function (direction) {
         if (direction === "down") {
-            // homeContent.addClass('background-2');
             timelineScene.addClass('active');
             introScene.removeClass('active');
         }
         else {
-            // homeContent.removeClass('background-2');
             introScene.addClass('active');
             timelineScene.removeClass('active');
         }
@@ -248,11 +221,9 @@ function home() {
     scene3.waypoint(function (direction) {
         var fade = homeContent.addClass;
         if (direction === "down") {
-            // homeContent.addClass('background-3');
             timelineScene.removeClass('active');
         }
         else {
-            // homeContent.removeClass('background-3');
             timelineScene.addClass('active');
         }
     }, { offset: '20%' });
@@ -265,18 +236,15 @@ function home() {
             myMarkers = assaultsRange(highlightYear, highlightYear);
         }
         allMarkers.forEach(function (value) {
-            // This right here!
-            value.setMap(null);
+            (value).setMap(null);
         });
     }
-    // addMarkers(2013);
-    // getHighlightYear(jQuery('.assault-highlight'));
+    // map marker transitions
     highlights.each(function (index, value) {
         var currentHighlight = jQuery(this);
         currentHighlight.waypoint(function (direction) {
             if (direction === "down") {
                 var highlightYear = getHighlightYear(currentHighlight);
-                console.log(highlightYear);
                 addMarkers(highlightYear);
                 currentHighlight.addClass('js-show-markers');
             }
@@ -287,7 +255,6 @@ function home() {
                     removeMarkers(highlightYear);
                     addMarkers((highlightYear - 1));
                 }
-                // allMarkers.setMap(null); ???????????????????????????????????????????????????????????????????????????????????????????
             }
         }, { offset: '50%' });
     });

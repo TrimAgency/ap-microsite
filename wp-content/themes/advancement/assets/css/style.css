@@ -5100,13 +5100,6 @@ p.article-header__p {
   border-top: 3px solid #1F2F43;
   border-bottom: 3px solid #1F2F43; }
 
-.main-title-holder {
-  position: fixed;
-  font-size: 100%;
-  top: 0;
-  left: 0;
-  height: 100vh; }
-
 .scrolly-text {
   width: 100%;
   padding: 0 10px;

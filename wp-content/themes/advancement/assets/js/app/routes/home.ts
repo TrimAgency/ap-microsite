@@ -46,10 +46,7 @@ export function home() {
   }
 
   function getHighlightYear($el){
-    let highlightYear = $el.data('highlight-year');
-    
-    console.log("highlightYear: ", highlightYear);
-    
+    let highlightYear = $el.data('highlight-year');  
     return highlightYear;
   }
 
@@ -57,7 +54,6 @@ export function home() {
     const assaults = assaultsRange(2010, endYear)
     
     assaults.map((assault, i) => {
-      // console.log(assaultsAt);
       let markers = new google.maps.Marker({
         position: assault.location,
         map: assaultMap,
@@ -79,32 +75,10 @@ export function home() {
     });
   }
 
-  // function removeMarkers(endYear) { 
-  //   const assaults = assaultsRange(2010, endYear)
-    
-  //   assaults.map((assault, i) => {
-  //     // console.log(assaultsAt);
-      
-  //     return new google.maps.Marker({
-  //       position: assault.location,
-  //       map: assaultMap,
-  //       // icon: '/wp-content/themes/dpz/assets/images/marker.png',
-  //       title: assault.hashtag,
-  //       postData: { 
-  //         postId:       assault.id,
-  //         postCity:     assault.city,
-  //         postState:    assault.state,
-  //         postLink:     assault.article,
-  //         postSummary:  assault.summary
-  //       }
-  //     });
 
-  //   });
-  // }
-
-  /////////////////////////////////////////
-  // -------- start google maps -------- //
-  /////////////////////////////////////////
+  //////////////////////////////////
+  // --------google maps -------- //
+  //////////////////////////////////
   var assaultMap;
 
   window.initMap = function() {
@@ -112,13 +86,9 @@ export function home() {
       center: {lat: 37.09024, lng: -95.712891},
       zoom: 4.9
     });
-    // things a bottom of filer were here //
     addMarkers(2013);
-  } // end initMap()
-
+  } 
   window.initMap();
-
-  // console.log("AssaultMapData: ", AssaultMapData);
 
   // -------- end google maps -------- //
 
@@ -143,19 +113,19 @@ export function home() {
   // fade scenes in at offset when scrolling down
   hiddenScene.each(function( index ) {
     let currentScene = jQuery(this);
+
     currentScene.waypoint(function(direction) {
-      // console.log(index, ": ", currentScene);
       if (direction === "down")  {
         currentScene.addClass('js-fade-in');
       } else {
         currentScene.removeClass('js-fade-in');
       }
     }, { offset: '50%' });
+
   });
 
   // fade main title in on load
   jQuery(document).ready(function() {
-    // mainTitle.removeClass('article-header__content--init').addClass('fade-in');
     mainTitle.removeClass('article-header__content--init');
   })
 
@@ -171,28 +141,21 @@ export function home() {
 
   scene2.waypoint(function(direction) {
     if (direction === "down")  {
-      // homeContent.addClass('background-2');
       timelineScene.addClass('active');
       introScene.removeClass('active');
     } else {
-      // homeContent.removeClass('background-2');
       introScene.addClass('active')
       timelineScene.removeClass('active')
     }
   }, { offset: '0%' })
 
   scene3.waypoint(function(direction) {
-
     let fade = homeContent.addClass;
   
     if (direction === "down")  {
-      // homeContent.addClass('background-3');
       timelineScene.removeClass('active')
-
     } else {
-      // homeContent.removeClass('background-3');
       timelineScene.addClass('active');
-
     }
   }, { offset: '20%' })
 
@@ -206,38 +169,32 @@ export function home() {
       myMarkers = assaultsRange(highlightYear, highlightYear);
     }
 
-    allMarkers.forEach(function (value) {
-      // This right here!
-      (value as assault).setMap(null);
+    allMarkers.forEach(function(value) {
+      (value).setMap(null);
     }); 
   }
 
 
-  // addMarkers(2013);
-  // getHighlightYear(jQuery('.assault-highlight'));
+  // map marker transitions
   highlights.each(function( index, value ) {
     let currentHighlight = jQuery(this);
     
     currentHighlight.waypoint(function(direction) {
       if (direction === "down") {
-
         let highlightYear = getHighlightYear(currentHighlight);
-        console.log(highlightYear);
         
         addMarkers(highlightYear);
         currentHighlight.addClass('js-show-markers');
-        
       } else {
         let highlightYear = getHighlightYear(currentHighlight);
+        
         currentHighlight.removeClass('js-show-markers');
-
         if(highlightYear > 2013) {
           removeMarkers(highlightYear);  
           addMarkers((highlightYear-1));
         }
-        // allMarkers.setMap(null); ???????????????????????????????????????????????????????????????????????????????????????????
       }
     }, { offset: '50%' });
   });
-  
+
 }
